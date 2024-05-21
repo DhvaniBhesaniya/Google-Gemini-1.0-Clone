@@ -52,7 +52,7 @@ const safetySettings = [
 async function run(input) {
   const chatSession = model.startChat({
     generationConfig,
-    safetySettings,
+    // safetySettings,
     history: [],
   });
 

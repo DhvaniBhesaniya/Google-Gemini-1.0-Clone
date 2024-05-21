@@ -18,15 +18,29 @@ const ContextProvider = (props) => {
     }, 75 * index); // Adjust the multiplier for faster or slower typing effect
   };
 
-  const onSent = async () => {
+  const newChat = () => {
+    setLoading(false)
+    setShowResult(false)
+  } 
+
+  const onSent = async (prompt) => {
     setResultData("");
     setLoading(true);
     setShowResult(true);
-    setRecentPrompt(input);
-    setPrevPrompts(prev=>[...prev,input])
-    const response = await run(input);
+    let response;
+    if (prompt !== undefined) {
+      response = await run(prompt);
+      setRecentPrompt(prompt);
+    } else {
+      setPrevPrompts((prev) => [...prev, input]);
+      setRecentPrompt(input)
+      response = await run(input)
+    }
+    // setRecentPrompt(input);
+    // setPrevPrompts(prev=>[...prev,input])
+    // const response = await run(input);
     let responseArray = response.split("**");
-    let newResponse ;
+    let newResponse;
 
     for (let i = 0; i < responseArray.length; i++) {
       if (i % 2 !== 0) {
@@ -35,13 +49,13 @@ const ContextProvider = (props) => {
         newResponse += responseArray[i];
       }
     }
-    let newResponse2 = newResponse.split("*").join("</br>")
+    let newResponse2 = newResponse.split("*").join("</br>");
     // setResultData(newResponse2);
     // setResultData(response);
-    let newResponceArray  = newResponse2.split(" ");
-    for(let i=0; i<newResponceArray.length; i++){
-       const nextword = newResponceArray[i];
-       delayChar(i,nextword + " ")
+    let newResponceArray = newResponse2.split(" ");
+    for (let i = 0; i < newResponceArray.length; i++) {
+      const nextword = newResponceArray[i];
+      delayChar(i, nextword + " ");
     }
     setLoading(false);
     setInput("");
@@ -61,6 +75,7 @@ const ContextProvider = (props) => {
     resultData,
     setResultData,
     onSent,
+    newChat
   };
 
   return (

@@ -9,12 +9,34 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-size: 22px;
+  font-size: 25px;
   padding: 20px;
-  color: #585858;
+  background-image: linear-gradient(to right, #ff0000 0%, #ff7f00 15%, #ffff00 30%, #00ff00 45%, #0000ff 60%, #4b0082 75%, #8b00ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
+.main .nav .nav-logo span {
+  position: relative;
+  top: -2vh;
+  left: 12px;
+  font-size: 1.3vh;
+  margin-bottom: 1vh;
+  color : blue;
+}
+
+.main .nav .nav-version{
+  position: relative;
+  top: -1vh;
+  right: 225px;
+  font-size: 1.3vh;
+  margin-bottom: 1vh;
+  color : blue;
+}
+
+
 .main .nav img {
-  width: 40px;
+  width: 60px;
   border-radius: 50%;
 }
 
