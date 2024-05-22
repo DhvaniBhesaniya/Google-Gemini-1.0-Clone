@@ -22,23 +22,25 @@ const Main = () => {
     onSent(text);
   };
 
-// Function to handle send button click
-const handleSendClick = () => {
-  if (!input.trim()) {
-    alert("Please enter a prompt.");
-    return;
-  }
-  onSent();
-};
+  // Function to handle send button click
+  const handleSendClick = () => {
+    if (!input.trim()) {
+      alert("Please enter a prompt.");
+      return;
+    }
+    onSent();
+  };
 
   return (
     <div className="main">
       <div className="nav">
         <div className="nav-logo">
-          <p>Gemini Clone 1.0 </p>
-          <span className="">~~ Dhvani Bhesaniya</span>
+          <p>Gemini Clone 2.0 </p>
+          <span>~~ Dhvani Bhesaniya</span>
         </div>
-        <img src={assets.user_icon} alt="" />
+        <a href="https://github.com/DhvaniBhesaniya" target="_blank">
+          <img src={assets.user_icon} alt="GitHub" />
+        </a>
       </div>
       <div className="main-container">
         {!showResult ? (
@@ -47,22 +49,50 @@ const handleSendClick = () => {
               <p>
                 <span>Hello, User.</span>
               </p>
-              <p>How can iI help you today? </p>
+              <p>How can i help you today? </p>
             </div>
             <div className="cards">
-            <div className="card" onClick={() => handleCardClick("Suggest beautiful places to see on an upcoming road trip")}>
+              <div
+                className="card"
+                onClick={() =>
+                  handleCardClick(
+                    "Suggest beautiful places to see on an upcoming road trip"
+                  )
+                }
+              >
                 <p>Suggest beautiful places to see on an upcoming road trip</p>
                 <img src={assets.compass_icon} alt="" />
               </div>
-              <div className="card" onClick={() => handleCardClick("Briefly summarize this concept: urban planning")}>
+              <div
+                className="card"
+                onClick={() =>
+                  handleCardClick(
+                    "Briefly summarize this concept: urban planning"
+                  )
+                }
+              >
                 <p>Briefly summarize this concept: urban planning</p>
                 <img src={assets.bulb_icon} alt="" />
               </div>
-              <div className="card" onClick={() => handleCardClick("Brainstorm team bonding activities for our work retreat")}>
+              <div
+                className="card"
+                onClick={() =>
+                  handleCardClick(
+                    "Brainstorm team bonding activities for our work retreat"
+                  )
+                }
+              >
                 <p>Brainstorm team bonding activities for our work retreat</p>
                 <img src={assets.message_icon} alt="" />
               </div>
-              <div className="card" onClick={() => handleCardClick("Improve the readability of the following code")}>
+              <div
+                className="card"
+                onClick={() =>
+                  handleCardClick(
+                    "Improve the readability of the following code"
+                  )
+                }
+              >
                 <p>Improve the readability of the following code</p>
                 <img src={assets.code_icon} alt="" />
               </div>
@@ -91,7 +121,7 @@ const handleSendClick = () => {
 
         <div className="main-bottom">
           <div className="search-box">
-          <input
+            <input
               ref={inputRef}
               type="text"
               onChange={(e) => setInput(e.target.value)}
