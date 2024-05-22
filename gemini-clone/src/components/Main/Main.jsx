@@ -38,7 +38,7 @@ const Main = () => {
           <p>Gemini Clone 2.0 </p>
           <span>~~ Dhvani Bhesaniya</span>
         </div>
-        <a href="https://github.com/DhvaniBhesaniya" target="_blank">
+        <a href="https://dhvanibhesaniya.github.io/My-Portfolio/index.html" target="_blank">
           <img src={assets.user_icon} alt="GitHub" />
         </a>
       </div>
